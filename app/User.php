@@ -5,18 +5,24 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use SoftDeletes;
+    public function bicycles(){
+        return $this->hasMany('App\Bicycle');
+    }
+    public  function country(){
+        return  $this->belongsTo('App\Country');
+    }
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name','birth_date','country_id'
     ];
 
     /**
@@ -36,4 +42,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

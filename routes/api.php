@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::apiResource('bicycles', 'BicycleController');
+Route::apiResource('users', 'UserController');
+Route::apiResource('countries', 'CountryController');

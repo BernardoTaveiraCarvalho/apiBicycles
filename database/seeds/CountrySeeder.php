@@ -20,7 +20,6 @@ class CountrySeeder extends Seeder
                 'name'      => $array ,
                 'created_at'=> now(),
                 'updated_at' =>now(),
-                'deleted_at' =>now(), /*não por se tiver o soft delete*/
             ]);
         }
     }
